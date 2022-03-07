@@ -168,13 +168,13 @@ public class Features {
 		if (book_data.isEmpty()) {
 			System.out.println("No booking found add first");
 		} else {
-			String path = ("Cruise_Data2.csv");
+		//	String path = ("Cruise_Data2.csv");
 			String filename = "Cruise" + date + ".csv";
 			File f = new File(filename);
-			FileWriter writer;
+			
 			boolean flag = false;
 			try {
-				writer = new FileWriter(f);
+				FileWriter	writer = new FileWriter(f);
 				for (book b : book_data) {
 					if (b.getBdate().equals(date)) {
 						writer.append(b.getBcustid() + "," + b.getBdate() + "," + b.getBname() + "\n");
@@ -185,6 +185,7 @@ public class Features {
 				if (flag = false) {
 					System.out.println("No booking found on " + date);
 				}
+				System.out.println("Data saved successfully");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
