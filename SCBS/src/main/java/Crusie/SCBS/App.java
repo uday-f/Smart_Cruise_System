@@ -29,7 +29,7 @@ public class App extends Features {
 				break;
 
 			case 2: // Display all customer id and names from list
-				if (f.checkreadcsv() == true)
+				if (f.checkreadcsv() == true)			//for valid order
 					f.addtolist();
 				else
 					System.out.println("You have to read any csv file first for that Choose option 1 ");
@@ -51,7 +51,6 @@ public class App extends Features {
 					}
 
 				}
-
 				else {
 
 					System.out.println("You have to read any csv file first for that Choose option 1 ");

@@ -131,8 +131,6 @@ public class Features {
 		int c = 0;
 		for (Customer cust : cust_data) {
 			if (cust.getName().equals(nm)) {
-				System.out.println("Enter To : ");
-				to = input.next();
 				System.out.println("Enter Description : ");
 				des = input.next();
 				from = "cruisebooker@gmail.com";
@@ -177,10 +175,8 @@ public class Features {
 			try {
 				FileWriter	writer = new FileWriter(f);
 				for (book b : book_data) {
-//					System.out.println("sss");
 					if (b.getBdate().equals(date)) {
-//						System.out.println("dddd");
-						writer.append(b.getBcustid() + "," + b.getBdate() + "," + b.getBname() + "\n");
+						writer.append(b.getBcustid() + "," + b.getBname() + "," +  b.getBdate()+ "\n");
 						flag = true;
 					}
 				}
