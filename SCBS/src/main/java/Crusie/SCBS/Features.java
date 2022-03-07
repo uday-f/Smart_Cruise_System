@@ -164,19 +164,22 @@ public class Features {
 		System.out.println("Number of attendees : " + book_data.size());
 	}
 
-	public void savefile(String date) {
+	public void savefile(String date,String date1) {
 		if (book_data.isEmpty()) {
 			System.out.println("No booking found add first");
 		} else {
 		//	String path = ("Cruise_Data2.csv");
-			String filename = "Cruise" + date + ".csv";
+
+			String filename = "Cruise" + date1 + ".csv";
 			File f = new File(filename);
 			
 			boolean flag = false;
 			try {
 				FileWriter	writer = new FileWriter(f);
 				for (book b : book_data) {
+//					System.out.println("sss");
 					if (b.getBdate().equals(date)) {
+//						System.out.println("dddd");
 						writer.append(b.getBcustid() + "," + b.getBdate() + "," + b.getBname() + "\n");
 						flag = true;
 					}
@@ -322,6 +325,8 @@ public class Features {
 		
 		return date;
 	}
+
+	
 
 	
 

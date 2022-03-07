@@ -77,8 +77,65 @@ public class App extends Features {
 			case 6: // Save customers to file
 				if (f.checkreadcsv() == true) {
 					System.out.println("Cruise Date");
-					String d = f.datedcheck();
-					f.savefile(d);
+					Scanner sc = new Scanner(System.in);
+					System.out.println("Enter Date in DD/MM/YYYY format");
+					System.out.println("Enter Year");
+					int year=sc.nextInt();
+					while(year<1000 || year>2022)
+					{
+						System.out.println("Enter correct year");
+						year=sc.nextInt();
+					}
+					System.out.println("Enter Month");
+					int month=sc.nextInt();
+					while(month>12 || month<=0)
+					{
+						System.out.println("Enter correct month");
+						month=sc.nextInt();
+					}
+					System.out.println("Enter Day");
+					int day=sc.nextInt();
+					if(month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12)
+					{
+						while(day<=0 || day>31)
+						{
+							System.out.println("Enter correct Day");
+							day=sc.nextInt();
+						}
+					}
+					else if(month==2)
+					{
+						if(year%4==0)
+						{
+							while(day<=0 || day>29)
+							{
+								System.out.println("Enter correct Day");
+								day=sc.nextInt();
+							}
+						}
+						else
+						{
+							while(day<=0 || day>28)
+							{
+								System.out.println("Enter correct Day");
+								day=sc.nextInt();
+							}
+						}
+						
+					}
+					else
+					{
+						while(day<=0 || day>30)
+						{
+							System.out.println("Enter correct Day");
+							day=sc.nextInt();
+						}
+					}
+					
+					String d=(day+"/"+month+"/"+year);
+					String d1=(day+""+month+""+year);	
+					f.savefile(d,d1);
+//					f.savefile2(d);
 				} else
 					System.out.println("You have to read any csv file first for that Choose option 1 ");
 				break;
